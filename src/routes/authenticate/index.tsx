@@ -4,9 +4,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { useNavigation } from "@react-navigation/native";
 
-
 import { Text, TouchableOpacity } from "react-native";
-
 import GoBackIcon from "../../assets/images/go-back-icon.svg";
 
 import HeaderHome from "../../components/HeaderHome/HeaderHome";
@@ -15,7 +13,8 @@ import SideMenu from "../../assets/images/side-menu-icon.svg";
 
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
-import NotesAndAbsences from "../../pages/NotesEndAbsences/NotesAndAbsences";
+import Product from "../../pages/Product/Product";
+import Categories from "../../pages/Categories/Categories";
 
 const Stack = createNativeStackNavigator();
 
@@ -23,8 +22,8 @@ const AuthenticatedRoutes: FC = () => {
   const { navigate } = useNavigation();
 
   const navigateHome = () => {
-    console.log("oii")
-    navigate('Home');
+    console.log("oii");
+    navigate("Home");
   };
   return (
     <Stack.Navigator
@@ -41,7 +40,7 @@ const AuthenticatedRoutes: FC = () => {
         name="Home"
         component={Home}
         options={{
-          headerStyle: { backgroundColor: "#3159A6" },
+          headerStyle: { backgroundColor: "#0c6800" },
           headerTitleAlign: "center",
           headerLeft: (props) => (
             <TouchableOpacity>
@@ -54,19 +53,28 @@ const AuthenticatedRoutes: FC = () => {
         name="Login"
         component={Login}
         options={{
-          headerStyle: { backgroundColor: "#3159A6" },
+          headerStyle: { backgroundColor: "#0c6800" },
         }}
       />
       <Stack.Screen
-        name="NotesAndAbsences"
-        component={NotesAndAbsences}
+        name="Product"
+        component={Product}
         options={{
-          title: "Notas e Faltas",
-          headerStyle: { backgroundColor: "#3159A6" },
-          headerTitleAlign: "center",
-          headerTitleStyle: { color: "#fff" },
+          headerStyle: { backgroundColor: "#0c6800" },
           headerLeft: (props) => (
-            <TouchableOpacity onPress={()=>navigateHome()}>
+            <TouchableOpacity onPress={() => navigateHome()}>
+              <GoBackIcon />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="Categories"
+        component={Categories}
+        options={{
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity onPress={() => navigateHome()}>
               <GoBackIcon />
             </TouchableOpacity>
           ),
