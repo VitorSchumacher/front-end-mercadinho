@@ -27,7 +27,7 @@ const AuthenticatedRoutes: FC = () => {
   };
   return (
     <Stack.Navigator
-      initialRouteName="Home"
+      initialRouteName="Login"
       screenOptions={{
         contentStyle: {
           backgroundColor: "#fff",
@@ -53,6 +53,7 @@ const AuthenticatedRoutes: FC = () => {
         name="Login"
         component={Login}
         options={{
+          title: "",
           headerStyle: { backgroundColor: "#0c6800" },
         }}
       />
