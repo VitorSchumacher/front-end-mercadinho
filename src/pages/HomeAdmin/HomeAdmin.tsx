@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useNavigation } from "@react-navigation/native";
 import { ScrollView, Text, View } from "react-native";
 
 import {
@@ -13,6 +14,7 @@ import {
 import { Ionicons } from "@expo/vector-icons";
 
 const HomeAdmin = () => {
+  const { navigate } = useNavigation();
   const [seeAdd, setSeeAdd] = useState(false);
   const [seeDel, setSeeDel] = useState(false);
 
@@ -34,11 +36,11 @@ const HomeAdmin = () => {
           </TouchableItem>
           {seeAdd === true ? (
             <ViewSubItens>
-              <TouchableSubItens>
+              <TouchableSubItens onPress={()=>navigate("AddProduct")}>
                 <Ionicons name="add-circle" size={25} color="#214917" />
                 <TextSubItem>Produto</TextSubItem>
               </TouchableSubItens>
-              <TouchableSubItens>
+              <TouchableSubItens onPress={()=>navigate("AddCategory")}>
                 <Ionicons name="add-circle" size={25} color="#214917" />
                 <TextSubItem>Categoria</TextSubItem>
               </TouchableSubItens>

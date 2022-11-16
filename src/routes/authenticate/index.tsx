@@ -16,6 +16,9 @@ import Login from "../../pages/Login/Login";
 import Product from "../../pages/Product/Product";
 import Categories from "../../pages/Categories/Categories";
 import HomeAdmin from "../../pages/HomeAdmin/HomeAdmin";
+import AddProduct from "../../pages/AddProduct/AddProduct";
+import AddCategory from "../../pages/AddCategory/AddCategory";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -91,6 +94,32 @@ const AuthenticatedRoutes: FC = () => {
           headerStyle: { backgroundColor: "#0c6800" },
           headerLeft: (props) => (
             <TouchableOpacity>{/* <GoBackIcon /> */}</TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="AddProduct"
+        component={AddProduct}
+        options={{
+          title: "Adicionar Produto",
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
+              <GoBackIcon />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="AddCategory"
+        component={AddCategory}
+        options={{
+          title: "Adicionar Categoria",
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
+              <GoBackIcon />
+            </TouchableOpacity>
           ),
         }}
       />
