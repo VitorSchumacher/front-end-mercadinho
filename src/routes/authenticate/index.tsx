@@ -15,6 +15,7 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Product from "../../pages/Product/Product";
 import Categories from "../../pages/Categories/Categories";
+import HomeAdmin from "../../pages/HomeAdmin/HomeAdmin";
 
 const Stack = createNativeStackNavigator();
 
@@ -40,6 +41,7 @@ const AuthenticatedRoutes: FC = () => {
         name="Home"
         component={Home}
         options={{
+          title: "",
           headerStyle: { backgroundColor: "#0c6800" },
           headerTitleAlign: "center",
           headerLeft: (props) => (
@@ -78,6 +80,17 @@ const AuthenticatedRoutes: FC = () => {
             <TouchableOpacity onPress={() => navigateHome()}>
               <GoBackIcon />
             </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="HomeAdmin"
+        component={HomeAdmin}
+        options={{
+          title: "Administrador",
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity>{/* <GoBackIcon /> */}</TouchableOpacity>
           ),
         }}
       />

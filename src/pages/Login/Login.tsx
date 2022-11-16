@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { ScrollView, Text, View, Image, TouchableOpacity } from "react-native";
+import { useNavigation } from "@react-navigation/native";
 
 import { Ionicons } from "@expo/vector-icons";
 
@@ -21,6 +22,7 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const [pass, setPass] = useState("");
   const [secury, setSecury] = useState(true);
+  const { navigate } = useNavigation();
 
   const onChangeText = (value: string, alter: any) => {
     console.log(value);
@@ -28,7 +30,11 @@ const Login = () => {
   };
 
   const submitLogin = () => {
-    console.log(email);
+    if (email === "admin" && pass === "admin") {
+      navigate("HomeAdmin");
+    } else {
+      navigate("Home");
+    }
   };
 
   return (
