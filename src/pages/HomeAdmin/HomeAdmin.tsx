@@ -58,7 +58,7 @@ const HomeAdmin = () => {
           </TouchableItem>
           {seeDel === true ? (
             <ViewSubItens>
-              <TouchableSubItens>
+              <TouchableSubItens onPress={() => navigate("DellProduct")}>
                 <Ionicons name="remove-circle" size={25} color="#214917" />
                 <TextSubItem>Produto</TextSubItem>
               </TouchableSubItens>

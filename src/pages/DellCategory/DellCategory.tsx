@@ -27,11 +27,12 @@ const DellCategory = () => {
       console.log(e);
     } finally {
       getData();
+      setSelectedCategory(null);
     }
   };
 
   const dellOff = () => {
-    alert("Nenhuma categoria selecionada!")
+    alert("Nenhuma categoria selecionada!");
   };
 
   const getData = () => {

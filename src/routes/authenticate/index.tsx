@@ -15,12 +15,13 @@ import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Product from "../../pages/Product/Product";
 import Categories from "../../pages/Categories/Categories";
+
+// ADMIN
 import HomeAdmin from "../../pages/HomeAdmin/HomeAdmin";
 import AddProduct from "../../pages/AddProduct/AddProduct";
 import AddCategory from "../../pages/AddCategory/AddCategory";
-
 import DellCategory from "../../pages/DellCategory/DellCategory";
-
+import DellProduct from "../../pages/DellProduct/DellProduct";
 
 const Stack = createNativeStackNavigator();
 
@@ -130,6 +131,19 @@ const AuthenticatedRoutes: FC = () => {
         component={DellCategory}
         options={{
           title: "Deletar Categoria",
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
+              <GoBackIcon />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="DellProduct"
+        component={DellProduct}
+        options={{
+          title: "Deletar Produto",
           headerStyle: { backgroundColor: "#0c6800" },
           headerLeft: (props) => (
             <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
