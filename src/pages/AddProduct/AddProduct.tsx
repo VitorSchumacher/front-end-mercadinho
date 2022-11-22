@@ -9,6 +9,10 @@ import {
   TextCategory,
   ViewInput,
   ViewMain,
+  ItemCategories,
+  TextCategories,
+  ViewCategories,
+  ItemCategoriesOn,
 } from "./style";
 
 const AddProduct = () => {
@@ -22,6 +26,7 @@ const AddProduct = () => {
   const [data, setData] = useState(initialState);
   const [catchErr, setCatchErr] = useState(false);
   const [categories, setCategories] = useState();
+  const [selectedCategory, setSelectedCategory] = useState(null);
 
   const getData = () => {
     try {
@@ -39,6 +44,7 @@ const AddProduct = () => {
 
   const submit = () => {
     try {
+      setData({ ...data, category: selectedCategory });
       console.log(data);
       fetch("https://mercadinhodovitinho.herokuapp.com/product/", {
         method: "POST",
@@ -70,6 +76,31 @@ const AddProduct = () => {
     <Screen>
       <ScrollView>
         <ViewMain>
+          <TextCategory>Categoria</TextCategory>
+          <ViewCategories>
+            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
+              {categories?.map((category) => {
+                if (data.category !== category.id) {
+                  return (
+                    <ItemCategories
+                      key={category.id}
+                      onPress={() =>
+                        setData({ ...data, category: category.id })
+                      }
+                    >
+                      <TextCategories>{category.name}</TextCategories>
+                    </ItemCategories>
+                  );
+                } else {
+                  return (
+                    <ItemCategoriesOn key={category.id} onPress={() => {}}>
+                      <TextCategories>{category.name}</TextCategories>
+                    </ItemCategoriesOn>
+                  );
+                }
+              })}
+            </ScrollView>
+          </ViewCategories>
           <TextCategory>Nome do produto</TextCategory>
           <ViewInput>
             <Input
@@ -98,15 +129,6 @@ const AddProduct = () => {
             <Input
               value={data.price}
               onChangeText={(text: string) => setData({ ...data, price: text })}
-            />
-          </ViewInput>
-          <TextCategory>Categoria</TextCategory>
-          <ViewInput>
-            <Input
-              value={data.category}
-              onChangeText={(text: number) =>
-                setData({ ...data, category: text })
-              }
             />
           </ViewInput>
           <Button onPress={submit}>

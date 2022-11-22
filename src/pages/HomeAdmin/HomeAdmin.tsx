@@ -36,11 +36,11 @@ const HomeAdmin = () => {
           </TouchableItem>
           {seeAdd === true ? (
             <ViewSubItens>
-              <TouchableSubItens onPress={()=>navigate("AddProduct")}>
+              <TouchableSubItens onPress={() => navigate("AddProduct")}>
                 <Ionicons name="add-circle" size={25} color="#214917" />
                 <TextSubItem>Produto</TextSubItem>
               </TouchableSubItens>
-              <TouchableSubItens onPress={()=>navigate("AddCategory")}>
+              <TouchableSubItens onPress={() => navigate("AddCategory")}>
                 <Ionicons name="add-circle" size={25} color="#214917" />
                 <TextSubItem>Categoria</TextSubItem>
               </TouchableSubItens>
@@ -62,7 +62,7 @@ const HomeAdmin = () => {
                 <Ionicons name="remove-circle" size={25} color="#214917" />
                 <TextSubItem>Produto</TextSubItem>
               </TouchableSubItens>
-              <TouchableSubItens>
+              <TouchableSubItens onPress={() => navigate("DellCategory")}>
                 <Ionicons name="remove-circle" size={25} color="#214917" />
                 <TextSubItem>Categoria</TextSubItem>
               </TouchableSubItens>

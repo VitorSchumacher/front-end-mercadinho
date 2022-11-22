@@ -47,3 +47,32 @@ export const TextButton = styled.Text`
   color: #fff;
   font-weight: bold;
 `;
+export const ViewCategories = styled.View`
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10px;
+  margin-bottom: 10px;
+`;
+export const ItemCategories = styled.TouchableOpacity`
+  border-width: 2px;
+  border-color: #30862529;
+  background-color: #30862529;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 5px 5px;
+`;
+
+export const TextCategories = styled.Text`
+  font-size: 15px;
+  font-weight: bold;
+  color: #214917;
+  padding: 3px 4px;
+`;
+export const ItemCategoriesOn = styled(ItemCategories)`
+  background-color: #39ce2588;
+  border-color: #39ce2588;
+`;

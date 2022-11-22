@@ -19,6 +19,8 @@ import HomeAdmin from "../../pages/HomeAdmin/HomeAdmin";
 import AddProduct from "../../pages/AddProduct/AddProduct";
 import AddCategory from "../../pages/AddCategory/AddCategory";
 
+import DellCategory from "../../pages/DellCategory/DellCategory";
+
 
 const Stack = createNativeStackNavigator();
 
@@ -115,6 +117,19 @@ const AuthenticatedRoutes: FC = () => {
         component={AddCategory}
         options={{
           title: "Adicionar Categoria",
+          headerStyle: { backgroundColor: "#0c6800" },
+          headerLeft: (props) => (
+            <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
+              <GoBackIcon />
+            </TouchableOpacity>
+          ),
+        }}
+      />
+      <Stack.Screen
+        name="DellCategory"
+        component={DellCategory}
+        options={{
+          title: "Deletar Categoria",
           headerStyle: { backgroundColor: "#0c6800" },
           headerLeft: (props) => (
             <TouchableOpacity onPress={() => navigate("HomeAdmin")}>
