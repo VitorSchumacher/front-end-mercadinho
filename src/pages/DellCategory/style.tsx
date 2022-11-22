@@ -10,8 +10,9 @@ export const ViewCategories = styled.View`
   display: flex;
   flex-direction: row;
   justify-content: center;
+  flex-wrap: wrap;
   align-items: center;
-  margin-top: 30px;
+  margin-top: 15px;
 `;
 export const ItemCategories = styled.TouchableOpacity`
   border-width: 2px;
@@ -21,7 +22,7 @@ export const ItemCategories = styled.TouchableOpacity`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin: 5px 5px;
+  margin: 10px 5px;
 `;
 
 export const TextCategories = styled.Text`
@@ -41,7 +42,7 @@ export const TextHeader = styled.Text`
 export const ItemCategoriesOn = styled(ItemCategories)`
   background-color: #39ce2588;
   border-color: #39ce2588;
-`
+`;
 export const Button = styled.TouchableOpacity`
   width: 50%;
   background-color: #0c6800;
@@ -51,7 +52,12 @@ export const Button = styled.TouchableOpacity`
   align-items: center;
   justify-content: center;
   margin-top: 10%;
+  margin-bottom: 7%;
 `;
+
+export const ButtonOff = styled(Button)`
+  background-color: #424242;
+`
 
 export const TextButton = styled.Text`
   font-size: 22px;

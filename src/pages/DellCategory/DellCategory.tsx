@@ -11,6 +11,7 @@ import {
   Button,
   TextButton,
   ViewMain,
+  ButtonOff,
 } from "./style";
 
 const DellCategory = () => {
@@ -27,6 +28,10 @@ const DellCategory = () => {
     } finally {
       getData();
     }
+  };
+
+  const dellOff = () => {
+    alert("Nenhuma categoria selecionada!")
   };
 
   const getData = () => {
@@ -53,32 +58,38 @@ const DellCategory = () => {
         <ViewMain>
           <TextHeader>Selecione a categoria para deletar</TextHeader>
           <ViewCategories>
-            <ScrollView horizontal showsHorizontalScrollIndicator={false}>
-              {categories?.map((category) => {
-                if (selectedCategory !== category.id) {
-                  return (
-                    <ItemCategories
-                      key={category.id}
-                      onPress={() => setSelectedCategory(category.id)}
-                    >
-                      <TextCategories>{category.name}</TextCategories>
-                    </ItemCategories>
-                  );
-                } else {
-                  return (
-                    <ItemCategoriesOn key={category.id} onPress={() => {}}>
-                      <TextCategories>{category.name}</TextCategories>
-                    </ItemCategoriesOn>
-                  );
-                }
-              })}
-            </ScrollView>
+            {categories?.map((category) => {
+              if (selectedCategory !== category.id) {
+                return (
+                  <ItemCategories
+                    key={category.id}
+                    onPress={() => setSelectedCategory(category.id)}
+                  >
+                    <TextCategories>{category.name}</TextCategories>
+                  </ItemCategories>
+                );
+              } else {
+                return (
+                  <ItemCategoriesOn key={category.id} onPress={() => {}}>
+                    <TextCategories>{category.name}</TextCategories>
+                  </ItemCategoriesOn>
+                );
+              }
+            })}
           </ViewCategories>
-          <Button onPress={() => dell()}>
-            <TextButton>Entrar</TextButton>
-          </Button>
         </ViewMain>
       </ScrollView>
+      <ViewMain>
+        {selectedCategory ? (
+          <Button onPress={() => dell()}>
+            <TextButton>Excluir</TextButton>
+          </Button>
+        ) : (
+          <ButtonOff onPress={() => dellOff()}>
+            <TextButton>Excluir</TextButton>
+          </ButtonOff>
+        )}
+      </ViewMain>
     </Screen>
   );
 };
